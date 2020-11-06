@@ -78,10 +78,12 @@ If the screen shots are different, then something in the image has changed, you 
 
 In your terminal press the key combination ctrl + c (ctrl and c) to quit the script.
 
-# Advanced Use
+# Advanced Use and Customization
 
 If you want to play around with different game speeds you can change the speed 
-variable in the ```if __name__ == "__main__"``` function.
+variable in the ```if __name__ == "__main__"``` function. speed = 1 works well with the games default speed settings.
+While it makes sense to have to deafult speed of the script be the default speed of the game, I made the script run faster by default
+because it encourges users to run there game faster which decreases the time it takes to find a shiny pokemon.
 
 If you have a different sized monitor, you can adjust the location of the screen 
 shot by changing the monitor variables int the screen_shot function. Run in debug mode
