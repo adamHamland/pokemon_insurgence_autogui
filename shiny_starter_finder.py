@@ -56,8 +56,6 @@ def select_pokemon(speed):
     time.sleep(.3)
     keyboard.Controller().release(keyboard.Key.esc)
 
-    print("Selected Pokemon.")
-
 def skip_through_startup():
     time.sleep(2)
     keyboard.Controller().press(keyboard.Key.enter)
@@ -78,9 +76,6 @@ def skip_through_startup():
     keyboard.Controller().press(keyboard.Key.enter)
     time.sleep(.3)
     keyboard.Controller().release(keyboard.Key.enter)
-    #to here---------
-
-    print("Started Game.")
 
     time.sleep(.5)
 
@@ -134,11 +129,16 @@ def setup(debug, speed):
 
 def find_shiny(initial_img_arrs, debug, speed):
     shiny_found = False
+    count = 0
 
     while shiny_found == False:
         skip_through_startup()
+        print("Started Game.")
 
         select_pokemon(speed)
+        print("Selected Pokemon.")
+
+        count += 1
 
         img_arr = screen_shot(debug, "check_shiny")
 
@@ -149,6 +149,8 @@ def find_shiny(initial_img_arrs, debug, speed):
         for i in initial_img_arrs:
             if np.array_equal(i, img_arr, False):
                 img_found = True
+
+        print(f"Checked {count} pokemon so far.")
         
         #No matching image found, then there might be a shiny.
         if img_found == False:
